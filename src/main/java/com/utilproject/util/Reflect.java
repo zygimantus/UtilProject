@@ -27,15 +27,15 @@ public class Reflect {
     }
 
     // http://stackoverflow.com/a/15315457/1766166
-    public static void getPrivateFields(Class aClass) {
+    public static int getPrivateFields(Class aClass) {
 	List<Field> privateFields = new ArrayList<>();
 	Field[] allFields = aClass.getDeclaredFields();
 	for (Field field : allFields) {
 	    if (Modifier.isPrivate(field.getModifiers())) {
 		privateFields.add(field);
-		System.out.println(field.getName());
 	    }
 	}
+	return privateFields.size();
     }
 
     public static void getPublicMethods(Class aClass) {
