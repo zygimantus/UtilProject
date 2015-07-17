@@ -5,6 +5,7 @@ import com.utilproject.util.Rand;
 import com.utilproject.util.Reflect;
 import com.utilproject.util.Validator;
 import java.beans.IntrospectionException;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.apache.log4j.Logger;
 
@@ -13,11 +14,11 @@ import org.apache.log4j.Logger;
  * @author Zygimantus
  */
 public class Main {
-    
+
     private static final Logger logger = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) {
-	
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
 	logger.info("Program started");
 
 	// create object
@@ -28,6 +29,11 @@ public class Main {
 	    Reflect.invokeGetters(Person.class, person);
 	} catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
 	    logger.error(ex);
+	}
+
+	Class[] arr = Reflect.getClasses("com.utilproject");
+	for (Class arr1 : arr) {
+	    System.out.println(arr1);
 	}
 
 	Reflect.getPrivateFields(Person.class);
