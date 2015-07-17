@@ -3,10 +3,12 @@ package com.utilproject;
 import com.utilproject.pojo.Person;
 import com.utilproject.util.Rand;
 import com.utilproject.util.Reflect;
+import com.utilproject.util.Time;
 import com.utilproject.util.Validator;
 import java.beans.IntrospectionException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import org.apache.log4j.Logger;
 
 /**
@@ -20,6 +22,13 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 	logger.info("Program started");
+
+	Calendar cal = Calendar.getInstance();
+
+	String ats = Time.getDurationString((int) (cal.getTimeInMillis() / 1000));
+	System.out.println(ats);
+	ats = Time.secondsToHMS((int) (cal.getTimeInMillis() / 1000));
+	System.out.println(ats);
 
 	// create object
 	Person person = new Person("zygimantus", "zygimantus@gmail.com");
