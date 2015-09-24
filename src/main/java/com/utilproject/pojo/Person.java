@@ -4,7 +4,7 @@ package com.utilproject.pojo;
  *
  * @author Zygimantus
  */
-public class Person {
+public class Person extends Entity {
 
     private final String name;
     private final String email;

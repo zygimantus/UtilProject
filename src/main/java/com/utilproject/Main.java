@@ -61,6 +61,8 @@ public class Main {
 	    }
 	}
 	System.out.println("TOTAL VALID EMAILS: " + counter);
+        
+	logger.info("Program ended");
     }
 
 }
