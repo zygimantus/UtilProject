@@ -2,7 +2,7 @@ package com.utilproject.pojo;
 
 /**
  *
- * @author Zygimantas
+ * @author Zygimantus
  */
 public abstract class Entity {
 

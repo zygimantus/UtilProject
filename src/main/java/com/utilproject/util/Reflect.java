@@ -100,7 +100,6 @@ public class Reflect {
 //
 //        return allClasses;
 //    }
-
     /**
      * Recursive method used to find all classes in a given directory and
      * subdirs.
@@ -127,6 +126,24 @@ public class Reflect {
             }
         }
         return classes;
+    }
+
+    /**
+     * getInheritedFields alternatyva.
+     * 
+     * @param fields
+     * @param type
+     * @return 
+     * @see http://stackoverflow.com/a/1042827/1766166
+     */
+    public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
+        fields.addAll(Arrays.asList(type.getDeclaredFields()));
+
+        if (type.getSuperclass() != null) {
+            fields = getAllFields(fields, type.getSuperclass());
+        }
+
+        return fields;
     }
 
 }

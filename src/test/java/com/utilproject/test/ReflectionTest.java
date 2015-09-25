@@ -3,6 +3,8 @@ package com.utilproject.test;
 import com.utilproject.pojo.Person;
 import com.utilproject.util.Reflect;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
@@ -35,6 +37,25 @@ public class ReflectionTest {
         nrOfFields = list.size();
 
         Assert.assertTrue(nrOfFields == NR_OF_INH_FIELDS);
+
+    }
+
+    @Test
+    public void test2() {
+//        System.out.println(getAllFields(new LinkedList<Field>(), LinkedList.class));
+//        System.out.println(getAllFields(new ArrayList<Field>(), ArrayList.class));
+        List<Field> ats1 = Reflect.getAllFields(new LinkedList<Field>(), LinkedList.class);
+        List<Field> ats2 = Reflect.getInheritedFields(LinkedList.class);
+
+        for (Field s : ats1) {
+            System.out.println(s.getName());
+        }
+        System.out.println("--");
+        for (Field a : ats2) {
+            System.out.println(a.getName());
+        }
+
+        Assert.assertTrue(ats1.size() == ats2.size());
 
     }
 }
