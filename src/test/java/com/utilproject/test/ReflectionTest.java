@@ -3,7 +3,6 @@ package com.utilproject.test;
 import com.utilproject.pojo.Person;
 import com.utilproject.util.Reflect;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import org.junit.Assert;
@@ -42,8 +41,6 @@ public class ReflectionTest {
 
     @Test
     public void test2() {
-//        System.out.println(getAllFields(new LinkedList<Field>(), LinkedList.class));
-//        System.out.println(getAllFields(new ArrayList<Field>(), ArrayList.class));
         List<Field> ats1 = Reflect.getAllFields(new LinkedList<Field>(), LinkedList.class);
         List<Field> ats2 = Reflect.getInheritedFields(LinkedList.class);
 

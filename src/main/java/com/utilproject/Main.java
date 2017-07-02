@@ -21,48 +21,48 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-	logger.info("Program started");
+        logger.info("Program started");
 
-	Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
 
-	String ats = Time.getDurationString((int) (cal.getTimeInMillis() / 1000));
-	System.out.println(ats);
-	ats = Time.secondsToHMS((int) (cal.getTimeInMillis() / 1000));
-	System.out.println(ats);
+        String ats = Time.getDurationString((int) (cal.getTimeInMillis() / 1000));
+        System.out.println(ats);
+        ats = Time.secondsToHMS((int) (cal.getTimeInMillis() / 1000));
+        System.out.println(ats);
 
-	// create object
-	Person person = new Person("zygimantus", "zygimantus@gmail.com");
+        // create object
+        Person person = new Person("zygimantus", "zygimantus@gmail.com");
 
-	// do methods
-	try {
-	    Reflect.invokeGetters(Person.class, person);
-	} catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-	    logger.error(ex);
-	}
+        // do methods
+        try {
+            Reflect.invokeGetters(Person.class, person);
+        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            logger.error(ex);
+        }
 
-	Class[] arr = Reflect.getClasses("com.utilproject");
-	for (Class arr1 : arr) {
-	    System.out.println(arr1);
-	}
+        Class[] arr = Reflect.getClasses("com.utilproject");
+        for (Class arr1 : arr) {
+            System.out.println(arr1);
+        }
 
-	Reflect.getPrivateFields(Person.class);
+        Reflect.getPrivateFields(Person.class);
 
-	Reflect.getAllMethods(Person.class);
+        Reflect.getAllMethods(Person.class);
 
-	Reflect.getPublicMethods(Person.class);
+        Reflect.getPublicMethods(Person.class);
 
-	int counter = 0;
-	for (int i = 0; i < 100; i++) {
+        int counter = 0;
+        for (int i = 0; i < 100; i++) {
 
-	    String s = Rand.randomString();
-	    if (Validator.email(s)) {
-		System.out.println(s);
-		counter++;
-	    }
-	}
-	System.out.println("TOTAL VALID EMAILS: " + counter);
-        
-	logger.info("Program ended");
+            String s = Rand.randomString();
+            if (Validator.email(s)) {
+                System.out.println(s);
+                counter++;
+            }
+        }
+        System.out.println("TOTAL VALID EMAILS: " + counter);
+
+        logger.info("Program ended");
     }
 
 }
