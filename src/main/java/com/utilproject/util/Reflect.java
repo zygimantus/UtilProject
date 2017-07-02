@@ -130,10 +130,10 @@ public class Reflect {
 
     /**
      * getInheritedFields alternatyva.
-     * 
+     *
      * @param fields
      * @param type
-     * @return 
+     * @return
      * @see http://stackoverflow.com/a/1042827/1766166
      */
     public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
